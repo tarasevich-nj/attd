@@ -48,6 +48,13 @@ public class User
     }
 
     public long UpdateUser(String username, String password, String firstname, String lastname, Date updated)
+    {
+        setPassword(password);
+        setFirstname(firstname);
+        setLastname(lastname);
+        setUpdated(updated);
+        return getUserId();
+    }
 
     public long getUserId()      {return user_id;   }
     public String getUsername()  {return username;  }
