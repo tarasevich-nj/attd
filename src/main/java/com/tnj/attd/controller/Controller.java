@@ -57,7 +57,4 @@ public class Controller
     public long GiveNumber()
     { return LastPostInt; }
 
-    @GetMapping("/dbtest")
-    public DBMSTest DBMSTest()
-    { return new DBMSTest(); }
 }
