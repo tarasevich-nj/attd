@@ -1,7 +1,5 @@
 package com.tnj.attd.models;
 
-import org.hibernate.type.IntegerType;
-
 import javax.persistence.*;
 import java.util.*;
 
