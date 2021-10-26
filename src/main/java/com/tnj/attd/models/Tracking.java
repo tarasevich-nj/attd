@@ -8,19 +8,19 @@ import java.util.Date;
 public class Tracking
 {
     @Id
-    @Column(name = "tracking_id", nullable = false, unique = true, columnDefinition = "Main Tracking Record ID")
+    @Column(name = "tracking_id", nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int tracking_id;
+    private Integer tracking_id;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
-    private int user_id;
+    private Integer user_id;
 
-    @Column(name = "date", nullable = false, columnDefinition = "Wanted DATE to hours input")
+    @Column(name = "date", nullable = false, columnDefinition = "timestamp")
     private Date date;
 
-    @Column(name = "hours", nullable = false, columnDefinition = "Value of the HOURS according to DATE")
-    private int hour;
+    @Column(name = "hours", nullable = false)
+    private Integer hour;
 
     //TODO Get and Set here
 }

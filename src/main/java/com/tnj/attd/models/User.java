@@ -8,26 +8,26 @@ import java.util.Date;
 public class User
 {
     @Id
-    @Column(name = "user_id", nullable = false, unique = true, columnDefinition = "User Main ID")
+    @Column(name = "user_id", nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int user_id;
+    private Integer user_id;
 
-    @Column(name = "lastname", length = 100, columnDefinition = "User Lastname")
+    @Column(name = "lastname", length = 100, columnDefinition = "varchar(100)")
     private String lastname;
 
-    @Column(name = "firstname", length = 100, columnDefinition = "User Firstname")
+    @Column(name = "firstname", length = 100, columnDefinition = "varchar(100)")
     private String firstname;
 
-    @Column(name = "username", nullable = false, unique = true, updatable = false, length = 100, columnDefinition = "User LOGIN string")
+    @Column(name = "username", nullable = false, unique = true, updatable = false, length = 100, columnDefinition = "varchar(50)")
     private String username;
 
-    @Column(name = "password", nullable = false, length = 100, columnDefinition = "User PASSWORD string")
+    @Column(name = "password", nullable = false, length = 100, columnDefinition = "varchar(50)")
     private String password;
 
-    @Column(name = "created", nullable = false, updatable = false, columnDefinition = "User Record CREATE Timestamp")
+    @Column(name = "created", nullable = false, updatable = false, columnDefinition = "timestamp default current_timestamp()")
     private Date created;
 
-    @Column(name = "updated", nullable = false, columnDefinition = "User Record UPDATE Timestamp")
+    @Column(name = "updated", nullable = false, columnDefinition = "timestamp default current_timestamp() on update current_timestamp()")
     private Date updated;
 
     public User() {}
