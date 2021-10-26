@@ -9,8 +9,6 @@ import com.tnj.attd.models.*;
 @RestController
 public class Controller
 {
-    private final long int1 = 0;
-    private final long int2 = 0;
     private final long inta = 0;
     private static long LastPostInt = 0;
 
