@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Attendance application</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p><a href="/hello">Here we are</a></p>
+
+<form action="/test" method="GET" id="testForm">
+  <div>
+    <label for="testField">Enter the test string?</label>
+    <input name="name" id="testField">
+    <button>Click me</button>
+  </div>
+</form>
+
+<form action="/average" method="GET" id="averageForm">
+  <div>
+    <label for="number1">Enter the number 1 here</label>
+    <input name="intone" id="number1">
+    <label for="number2">Enter the number 2 here</label>
+    <input name="inttwo" id="number2">
+    <button>Click me</button>
+  </div>
+</form>
+
+<form action="/in" method="POST" id="inForm">
+  <div>
+    <label for="numberIN">Enter the POST number here</label>
+    <input name="num" id="numberIN">
+    <button>Click me</button>
+  </div>
+</form>
+
+<form action="/out" method="GET" id="outForm">
+  <div>
+    <label>Here is last POSTed number</label>
+    <button>Click me</button>
+  </div>
+</form>
+
+</body>
+</html>

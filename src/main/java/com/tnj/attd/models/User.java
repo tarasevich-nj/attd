@@ -1,7 +1,9 @@
 package com.tnj.attd.models;
 
+import org.hibernate.type.IntegerType;
+
 import javax.persistence.*;
-import java.util.Date;
+import java.util.*;
 
 @Entity
 @Table(name = "User")
@@ -9,7 +11,7 @@ public class User
 {
     @Id
     @Column(name = "user_id", nullable = false, unique = true)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer user_id;
 
     @Column(name = "lastname", length = 100, columnDefinition = "varchar(100)")
@@ -38,7 +40,7 @@ public class User
         setPassword(password);
     }
 
-    public long CreateUser(String username, String password, Date created, Date updated)
+    public Integer CreateUser(String username, String password, Date created, Date updated)
     {
         setUsername(username);
         setPassword(password);
@@ -47,7 +49,7 @@ public class User
         return getUserId();
     }
 
-    public long UpdateUser(String username, String password, String firstname, String lastname, Date updated)
+    public Integer UpdateUser(String username, String password, String firstname, String lastname, Date updated)
     {
         setPassword(password);
         setFirstname(firstname);
@@ -56,7 +58,7 @@ public class User
         return getUserId();
     }
 
-    public long getUserId()      {return user_id;   }
+    public Integer getUserId()   {return user_id;   }
     public String getUsername()  {return username;  }
     public String getPassword()  {return password;  }
     public String getFirstname() {return firstname; }

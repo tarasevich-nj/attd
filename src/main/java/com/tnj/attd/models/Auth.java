@@ -1,7 +1,7 @@
 package com.tnj.attd.models;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.util.*;
 
 @Entity
 @Table(name = "Auth")
@@ -9,7 +9,7 @@ public class Auth
 {
     @Id
     @Column(name = "auth_id", nullable = false, unique = true)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer auth_id;
 
     @ManyToOne(cascade = CascadeType.ALL)
@@ -23,4 +23,12 @@ public class Auth
     private Date dt;
 
     public Auth() {}
+
+    public Integer getAuthId() {return auth_id;}
+    public String getToken()   {return token;}
+    public Date getDt()        {return dt;}
+
+    public void setToken(String token) {this.token=token;}
+    public void setDt(Date dt)         {this.dt=dt;}
+
 }
