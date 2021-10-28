@@ -1,12 +1,11 @@
 package com.tnj.attd.models;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "Tracking")
-public class Tracking
-{
+public class Tracking {
     @Id
     @Column(name = "tracking_id", nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,20 +13,39 @@ public class Tracking
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
-    private Integer user_id;
+    private User user;
 
-    @Column(name = "date", nullable = false, columnDefinition = "timestamp")
-    private Date date;
+    @Column(name = "date", nullable = false)
+    private LocalDate date;
 
     @Column(name = "hours", nullable = false)
-    private Integer hour;
+    private Integer hours;
 
-    public Integer getTrackingId() {return tracking_id;}
-    public Integer getUserId() {return user_id;}
-    public Date getDate()      {return date;}
-    public Integer getHour()   {return hour;}
+    public Integer getTrackingId() {
+        return tracking_id;
+    }
 
-    public void setUserId(Integer user_id) {this.user_id=user_id;}
-    public void setDate(Date date) {this.date=date;}
-    public void setHour(Integer hour) {this.hour=hour;}
+    public User getUser() {
+        return user;
+    }
+
+    public void setUserId(User user) {
+        this.user = user;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public Integer getHours() {
+        return hours;
+    }
+
+    public void setHours(Integer hours) {
+        this.hours = hours;
+    }
 }

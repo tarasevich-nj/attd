@@ -1,12 +1,11 @@
 package com.tnj.attd.models;
 
 import javax.persistence.*;
-import java.util.*;
+import java.time.Instant;
 
 @Entity
 @Table(name = "Auth")
-public class Auth
-{
+public class Auth {
     @Id
     @Column(name = "auth_id", nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,21 +13,35 @@ public class Auth
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
-    private Integer user_id;
+    private User user;
 
-    @Column(name = "Token", nullable = false, columnDefinition = "varchar(100)")
-    private String token;
+    @Column(name = "auth_token", nullable = false)
+    private String authToken;
 
-    @Column(name = "DT", nullable = false, columnDefinition = "timestamp")
-    private Date dt;
+    @Column(name = "auth_time", nullable = false)
+    private Instant authTime;
 
-    public Auth() {}
+    public Auth() {
+    }
 
-    public Integer getAuthId() {return auth_id;}
-    public String getToken()   {return token;}
-    public Date getDt()        {return dt;}
+    public Integer getAuthId() {
+        return auth_id;
+    }
 
-    public void setToken(String token) {this.token=token;}
-    public void setDt(Date dt)         {this.dt=dt;}
+    public String getAuthToken() {
+        return authToken;
+    }
+
+    public void setAuthToken(String authToken) {
+        this.authToken = authToken;
+    }
+
+    public Instant getAuthTime() {
+        return authTime;
+    }
+
+    public void setAuthTime(Instant authTime) {
+        this.authTime = authTime;
+    }
 
 }
