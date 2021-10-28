@@ -14,7 +14,7 @@ public class Tracking
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
-    private Integer user_id;
+    private User user;
 
     @Column(name = "date", nullable = false, columnDefinition = "timestamp")
     private Date date;
@@ -23,11 +23,11 @@ public class Tracking
     private Integer hour;
 
     public Integer getTrackingId() {return tracking_id;}
-    public Integer getUserId() {return user_id;}
+    public User getUserId() {return user;}
     public Date getDate()      {return date;}
     public Integer getHour()   {return hour;}
 
-    public void setUserId(Integer user_id) {this.user_id=user_id;}
+    public void setUserId(Integer user_id) {this.user=user;}
     public void setDate(Date date) {this.date=date;}
     public void setHour(Integer hour) {this.hour=hour;}
 }

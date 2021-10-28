@@ -1,5 +1,7 @@
 package com.tnj.attd.models;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.*;
 
@@ -8,8 +10,10 @@ import java.util.*;
 public class User
 {
     @Id
-    @Column(name = "user_id", nullable = false, unique = true)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "user_id")
+    //@GenericGenerator(name = "userIdGenerator", strategy = "increment")
+    //@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "userIdGenerator")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer user_id;
 
     @Column(name = "lastname", length = 100, columnDefinition = "varchar(100)")
@@ -30,7 +34,9 @@ public class User
     @Column(name = "updated", nullable = false, columnDefinition = "timestamp default current_timestamp() on update current_timestamp()")
     private Date updated;
 
-    public User() {}
+    public User()
+    {
+    }
 
     public void Login(String username, String password)
     {

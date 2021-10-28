@@ -14,7 +14,7 @@ public class Auth
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
-    private Integer user_id;
+    private User user;
 
     @Column(name = "Token", nullable = false, columnDefinition = "varchar(100)")
     private String token;
@@ -25,6 +25,7 @@ public class Auth
     public Auth() {}
 
     public Integer getAuthId() {return auth_id;}
+    public User getUserId() {return user;}
     public String getToken()   {return token;}
     public Date getDt()        {return dt;}
 

@@ -16,12 +16,12 @@ public class Controller
     private UserRepository userRepository;
 
     @PostMapping(path = "/addUser")
-    public @ResponseBody String addNewUser (@RequestParam String name, String password)
+    public @ResponseBody String addUser (@RequestParam(value = "userName") String userName, @RequestParam(value = "userPassword") String userPassword)
     {
         User u = new User();
-        u.setUsername(name);
-        u.setPassword(password);
-        return "OK";
+        u.setUsername(userName);
+        u.setPassword(userPassword);
+        return "OK. User created. Id = " + u.getUserId();
     }
 
     @GetMapping(path="/allUsers")
@@ -33,25 +33,27 @@ public class Controller
 
 
 
-
-
-
     @GetMapping("/test")
     public String Test()
     { return "Test ok"; }
 
+
+
+
     @GetMapping("/average")
-    public Average Average(@RequestParam(value = "int1") long int1, @RequestParam(value = "int2") long int2)
+    public Average Average(@RequestParam(value = "intone") long int1, @RequestParam(value = "inttwo") long int2)
     { return new Average(int1, int2, inta); }
 
-    @PostMapping("/takenumber")
-    public long TakeNumber(@RequestParam(value = "num") long LastPostInt)
+
+
+
+    @PostMapping("/in")
+    public long TakeNumber(@RequestParam(value = "number") long LastPostInt)
     {
         this.LastPostInt = LastPostInt;
-        return 0;
+        return this.LastPostInt;
     }
-
-    @GetMapping("/givenumber")
+    @GetMapping("/out")
     public long GiveNumber()
     { return LastPostInt; }
 
